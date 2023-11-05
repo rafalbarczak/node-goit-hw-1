@@ -1,8 +1,8 @@
-const path = require("path");
-const fs = require("fs").promises;
-const { v4: uuidv4 } = require("uuid");
+import path from "path";
+import fs from "fs/promises";
+import { v4 as uuidv4 } from "uuid";
 
-const contactsPath = path.join(__dirname, "db", "contacts.json");
+const contactsPath = path.join(process.cwd(), "/db/contacts.json");
 
 /**
  * Displays a list of contacts from the contacts.json file
@@ -85,9 +85,4 @@ function addContact(name, email, phone) {
     });
 }
 
-module.exports = {
-  listContacts,
-  getContactById,
-  removeContact,
-  addContact,
-};
+export { listContacts, getContactById, removeContact, addContact };
